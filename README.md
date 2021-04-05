@@ -2,14 +2,14 @@
 The Future of FullBright
 
 ## Download and How To Use
-The download of the jar is here (Currently Version 1, the github is a whole version in front for a while...): https://www.curseforge.com/minecraft/mc-mods/devjg-fullbright
-To use it press the B button to cycle to the next mode. Using the GUI (/fullbright or /fb), You can change the transition speed.
-Changing the transition speed from ranges 1-3 changes the mode to `incremental`, incremental mode means that when cycling through brightness levels (B), it will fade from your current brightness onto the next. when the transition speed is 0, the mode is set to `instantaneous`. This means that when cycling through brightness levels, they will change instantly instead of having a fade.
-I'm not going to explain how to install it, it's just a forge mod - google it.
+The download of the jar is here (Currently Version 1, the github is a whole version in front for a while...): https://www.curseforge.com/minecraft/mc-mods/devjg-fullbright  
+To use it press the B button to cycle to the next mode. Using the GUI (/fullbright or /fb), You can change the transition speed.  
+Changing the transition speed from ranges 1-3 changes the mode to `incremental`, incremental mode means that when cycling through brightness levels (B), it will fade from your current brightness onto the next. when the transition speed is 0, the mode is set to `instantaneous`. This means that when cycling through brightness levels, they will change instantly instead of having a fade.  
+I'm not going to explain how to install it, it's just a forge mod - google it.  
 
 ## Discord
-For any development related issues/bugs/suggestions please visit: https://discord.gg/b35rQvS
-For any Minecraft Cannon related: https://discord.gg/hk8W88h
+For any development related issues/bugs/suggestions please visit: https://discord.gg/b35rQvS  
+For any Minecraft Cannon related: https://discord.gg/hk8W88h  
 
 ## Change Log
   - Updated to Version 2!
