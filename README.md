@@ -1,6 +1,7 @@
 # FullBright
 The Future of FullBright
 
+
 ## Download and How To Use
 The download of the jar is here (Currently Version 1, the github is a whole version in front for a while...): https://www.curseforge.com/minecraft/mc-mods/devjg-fullbright  
 To use it press the B button to cycle to the next mode. Using the GUI (/fullbright or /fb), You can change the transition speed.  
@@ -22,6 +23,7 @@ For any Minecraft Cannon related: https://discord.gg/hk8W88h
   - Changed the brightness level of 3/4 last brightness levels to support the new incremental mode more
 
 ## To-Do
-  - Need to add LightFix
-  - Need to add support with all texture packs
-  - Need to make it support shaders (Basically turn fullbright off when shaders are on)
+  - Add LightFix
+  - Add support with all texture packs
+  - Shader support (Basically turn fullbright off when shaders are on)
+  - Option to toggle chat messages when cycling brightness levels
