@@ -11,7 +11,7 @@ import java.util.List;
 public class FBCommand extends CommandBase {
     @Override
     public String getCommandName() {
-        return "fullBright";
+        return "fullbright";
     }
 
     @Override
