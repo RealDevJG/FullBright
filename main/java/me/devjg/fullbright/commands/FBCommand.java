@@ -9,28 +9,28 @@ import java.util.Collections;
 import java.util.List;
 
 public class FBCommand extends CommandBase {
-    @Override
-    public String getCommandName() {
-        return "fullbright";
-    }
+  @Override
+  public String getCommandName() {
+    return "fullbright";
+  }
 
-    @Override
-    public String getCommandUsage(ICommandSender sender) {
-        return "/fullbright";
-    }
+  @Override
+  public String getCommandUsage(ICommandSender sender) {
+    return "/fullbright";
+  }
 
-    @Override
-    public List<String> getCommandAliases(){
-        return Collections.singletonList("fb");
-    }
+  @Override
+  public List<String> getCommandAliases() {
+    return Collections.singletonList("fb");
+  }
 
-    @Override
-    public void processCommand(ICommandSender sender, String[] args) throws CommandException {
-        Fullbright.showGui = true;
-    }
+  @Override
+  public void processCommand(ICommandSender sender, String[] args) throws CommandException {
+    Fullbright.showGui = true;
+  }
 
-    @Override
-    public int getRequiredPermissionLevel(){
-        return -1;
-    }
+  @Override
+  public int getRequiredPermissionLevel() {
+    return -1;
+  }
 }
