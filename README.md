@@ -26,3 +26,4 @@ For any Minecraft Cannon related: https://discord.gg/hk8W88h
   - Add support with all texture packs
   - Shader support (Basically turn fullbright off when shaders are on)
   - Option to toggle chat messages when cycling brightness levels
+  - Auto-adjust FullBright (maybe)
