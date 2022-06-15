@@ -1,0 +1,14 @@
+[{
+  "modid": "devjg_fullbright",
+  "name": "Fullbright",
+  "description": "The Future of FullBright.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://discord.gg/b35rQvS",
+  "updateUrl": "",
+  "authorList": ["DevJG"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}]

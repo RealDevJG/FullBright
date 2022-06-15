@@ -1,0 +1,89 @@
+package me.devjg.fullbright;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.settings.KeyBinding;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraftforge.client.event.RenderHandEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+public class FBHandler {
+  private static final KeyBinding FB_BINDING = Fullbright.fullbright;
+  private static boolean shouldIncrement;
+
+  private static float nextLevel;
+  private static final float DIMMEST = -0.1F;
+  private static final float DIM = 3.0F;
+  private static final float BRIGHT = 6.5F;
+  private static final float BRIGHTEST = 12.0F;
+
+  private static final String TEXT_BASE =
+      EnumChatFormatting.DARK_GRAY + "[" +
+      EnumChatFormatting.YELLOW + "FullBright" +
+      EnumChatFormatting.DARK_GRAY + "] " +
+      EnumChatFormatting.GRAY + "set to ";
+
+  private static float getTransitionSpeed() {
+    return (float) ((Fullbright.transitionSpeed*6.0)/1000);
+  }
+
+  @SideOnly(Side.CLIENT)
+  @SubscribeEvent
+  public void onRender(RenderHandEvent event) {
+    if (FB_BINDING.isPressed()) {
+      if ("Instantaneous".equals(Fullbright.getMode())) {
+        if (Minecraft.getMinecraft().gameSettings.gammaSetting != nextLevel) {
+          float moveBy = nextLevel - Minecraft.getMinecraft().gameSettings.gammaSetting;
+          Minecraft.getMinecraft().gameSettings.gammaSetting += moveBy;
+          nextLevel = getNextLevel(nextLevel);
+        }
+
+        Minecraft.getMinecraft().gameSettings.saveOptions();
+      } else if ("Incremental".equals(Fullbright.getMode()))
+        shouldIncrement = true;
+
+      if (Fullbright.notifications)
+        Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(getNeededText()));
+    }
+
+    if (shouldIncrement) {
+      Minecraft.getMinecraft().gameSettings.gammaSetting = lerp(Minecraft.getMinecraft().gameSettings.gammaSetting, nextLevel, getTransitionSpeed());
+
+      if (0.1 >= Math.abs(Minecraft.getMinecraft().gameSettings.gammaSetting - nextLevel)) {
+        shouldIncrement = false;
+        Minecraft.getMinecraft().gameSettings.saveOptions();
+        nextLevel = getNextLevel(nextLevel);
+      }
+      System.out.println("next level: " + nextLevel);
+      System.out.println("gamma: " + Minecraft.getMinecraft().gameSettings.gammaSetting);
+    }
+  }
+
+  private static float getNextLevel(float previousLevel) {
+    if (DIMMEST == previousLevel)
+      return DIM;
+    else if (DIM == previousLevel)
+      return BRIGHT;
+    else if (BRIGHT == previousLevel)
+      return BRIGHTEST;
+    else
+      return DIMMEST;
+  }
+
+  private static String getNeededText() {
+    if (DIMMEST == nextLevel)
+      return TEXT_BASE + EnumChatFormatting.DARK_RED + "DIMMEST";
+    else if (DIM == nextLevel)
+      return TEXT_BASE + EnumChatFormatting.RED + "DIM";
+    else if (BRIGHT == nextLevel)
+      return TEXT_BASE + EnumChatFormatting.YELLOW + "BRIGHT";
+    else
+      return TEXT_BASE + EnumChatFormatting.GREEN + "BRIGHTEST";
+  }
+
+  private static float lerp(float from, float to, float by) {
+    return (float) ((from * (1.0 - by)) + (to * by));
+  }
+}
