@@ -11,19 +11,18 @@ I'm not going to explain how to install it, it's just a forge mod - google it.
 For any development related issues/bugs/suggestions please visit: https://discord.gg/b35rQvS  
 For any Minecraft Cannon related: https://discord.gg/hk8W88h  
 
-## Change Log
-  - Updated to Version 2!
-  - Made FullBright open-source
-  - Recoded the entire mod to improve things such as performance and the way the fullbright handler works
-  - Made the GUI *or I edited it to align things differently, don't remember*
-  - Refactored some strings that get sent to the player to fix very slight issues
-  - Changed the way the increment speed is worked out
-  - Just done some basic fileio to save the transition speed and load it for next restart
-  - Changed the brightness level of 3/4 last brightness levels to support the new incremental mode more
+## Change Log Version 2.1.0:
+  - Changed the code a lot
+  - Changed increment/transition speeds so they are faster
+  - Added linear interpolation while changing between brightness levels to make it more bearable
+  - Added chat notification toggle button
+  - Changed the name of the keybinding in the controls menu
+  - Changed the highest brightness level to be slightly higher than in the previous version to avoid blocklight level 0 still appearing to be very very slightly dark 
 
 ## To-Do
   - Add LightFix
   - Add support with all texture packs
-  - Shader support (Basically turn fullbright off when shaders are on)
-  - Option to toggle chat messages when cycling brightness levels
+  - Shader support
   - Auto-adjust FullBright (maybe)
+  - Add a slider instead of 3 options to choose the transition speed custom
+  - Fix the bug where the transition speed isn't correctly defined on game launch 
