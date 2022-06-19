@@ -25,6 +25,10 @@ public class FBHandler {
       EnumChatFormatting.DARK_GRAY + "] " +
       EnumChatFormatting.GRAY + "set to ";
 
+  FBHandler() {
+    nextLevel = getNextLevel();
+  }
+
   private static float getTransitionSpeed() {
     return (float) ((Fullbright.transitionSpeed*6.0)/1000);
   }
@@ -37,7 +41,7 @@ public class FBHandler {
         if (Minecraft.getMinecraft().gameSettings.gammaSetting != nextLevel) {
           float moveBy = nextLevel - Minecraft.getMinecraft().gameSettings.gammaSetting;
           Minecraft.getMinecraft().gameSettings.gammaSetting += moveBy;
-          nextLevel = getNextLevel(nextLevel);
+          nextLevel = getNextLevel();
         }
 
         Minecraft.getMinecraft().gameSettings.saveOptions();
@@ -45,7 +49,7 @@ public class FBHandler {
         shouldIncrement = true;
 
       if (Fullbright.notifications)
-        Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(getNeededText()));
+        Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(getText()));
     }
 
     if (shouldIncrement) {
@@ -54,33 +58,30 @@ public class FBHandler {
       if (0.1 >= Math.abs(Minecraft.getMinecraft().gameSettings.gammaSetting - nextLevel)) {
         shouldIncrement = false;
         Minecraft.getMinecraft().gameSettings.saveOptions();
-        nextLevel = getNextLevel(nextLevel);
+        nextLevel = getNextLevel();
       }
-      System.out.println("next level: " + nextLevel);
-      System.out.println("gamma: " + Minecraft.getMinecraft().gameSettings.gammaSetting);
     }
   }
 
-  private static float getNextLevel(float previousLevel) {
-    if (DIMMEST == previousLevel)
+  private static float getNextLevel() {
+    float currentLevel = Minecraft.getMinecraft().gameSettings.gammaSetting;
+    if (2 >= Math.abs(DIMMEST - currentLevel))
       return DIM;
-    else if (DIM == previousLevel)
+    else if (2 >= Math.abs(DIM - currentLevel))
       return BRIGHT;
-    else if (BRIGHT == previousLevel)
+    else if (2 >= Math.abs(BRIGHT - currentLevel))
       return BRIGHTEST;
-    else
-      return DIMMEST;
+    return DIMMEST;
   }
 
-  private static String getNeededText() {
+  private static String getText() {
     if (DIMMEST == nextLevel)
       return TEXT_BASE + EnumChatFormatting.DARK_RED + "DIMMEST";
     else if (DIM == nextLevel)
       return TEXT_BASE + EnumChatFormatting.RED + "DIM";
     else if (BRIGHT == nextLevel)
       return TEXT_BASE + EnumChatFormatting.YELLOW + "BRIGHT";
-    else
-      return TEXT_BASE + EnumChatFormatting.GREEN + "BRIGHTEST";
+    return TEXT_BASE + EnumChatFormatting.GREEN + "BRIGHTEST";
   }
 
   private static float lerp(float from, float to, float by) {
