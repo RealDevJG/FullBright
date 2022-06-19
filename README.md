@@ -11,7 +11,7 @@ I'm not going to explain how to install it, it's just a forge mod - google it.
 For any development related issues/bugs/suggestions please visit: https://discord.gg/b35rQvS  
 For any Minecraft Cannon related: https://discord.gg/hk8W88h  
 
-## Change Log Version 2.1.0:
+## Changelog Version 2.1.0:
   - Changed the code a lot
   - Changed increment/transition speeds so they are faster
   - Added linear interpolation while changing between brightness levels to make it more bearable
@@ -19,10 +19,12 @@ For any Minecraft Cannon related: https://discord.gg/hk8W88h
   - Changed the name of the keybinding in the controls menu
   - Changed the highest brightness level to be slightly higher than in the previous version to avoid blocklight level 0 still appearing to be very very slightly dark 
 
+## Changelog Version 2.1.1:
+  - Fixed the bug where the nextLevel to transition to isn't properly defined on game launch
+
 ## To-Do
   - Add LightFix
   - Add support with all texture packs
   - Shader support
   - Auto-adjust FullBright (maybe)
   - Add a slider instead of 3 options to choose the transition speed custom
-  - Fix the bug where the transition speed isn't correctly defined on game launch 
