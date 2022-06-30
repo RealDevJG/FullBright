@@ -22,7 +22,7 @@ For any Minecraft Cannon related: https://discord.gg/hk8W88h
 ## Changelog Version 2.1.1:
   - Fixed the bug where the nextLevel to transition to isn't properly defined on game launch
   
-## Changelog Versions 2.1.2:
+## Changelog Version 2.1.2:
   - Fixed critical bug that crashed players who have never used the mod before due to them not having an already generated config file
 
 ## To-Do
