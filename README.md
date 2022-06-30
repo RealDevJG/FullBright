@@ -24,6 +24,7 @@ For any Minecraft Cannon related: https://discord.gg/hk8W88h
   
 ## Changelog Version 2.1.2:
   - Fixed critical bug that crashed players who have never used the mod before due to them not having an already generated config file
+  - Fixed a slight bug with instant mode not notifying of the correct brightness level being set, but instead notifying about the previous light level in chat. (Lazy temporary fix)
 
 ## To-Do
   - Add LightFix
