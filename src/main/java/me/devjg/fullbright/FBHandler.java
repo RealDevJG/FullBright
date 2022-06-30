@@ -75,13 +75,23 @@ public class FBHandler {
   }
 
   private static String getText() {
-    if (DIMMEST == nextLevel)
-      return TEXT_BASE + EnumChatFormatting.DARK_RED + "DIMMEST";
-    else if (DIM == nextLevel)
-      return TEXT_BASE + EnumChatFormatting.RED + "DIM";
-    else if (BRIGHT == nextLevel)
+    if ("Incremental".equals(Fullbright.getMode())) {
+      if (DIMMEST == nextLevel)
+        return TEXT_BASE + EnumChatFormatting.DARK_RED + "DIMMEST";
+      else if (DIM == nextLevel)
+        return TEXT_BASE + EnumChatFormatting.RED + "DIM";
+      else if (BRIGHT == nextLevel)
+        return TEXT_BASE + EnumChatFormatting.YELLOW + "BRIGHT";
+      return TEXT_BASE + EnumChatFormatting.GREEN + "BRIGHTEST";
+    } else {
+      if (DIMMEST == nextLevel)
+        return TEXT_BASE + EnumChatFormatting.GREEN + "BRIGHTEST";
+      else if (DIM == nextLevel)
+        return TEXT_BASE + EnumChatFormatting.DARK_RED + "DIMMEST";
+      else if (BRIGHT == nextLevel)
+        return TEXT_BASE + EnumChatFormatting.RED + "DIM";
       return TEXT_BASE + EnumChatFormatting.YELLOW + "BRIGHT";
-    return TEXT_BASE + EnumChatFormatting.GREEN + "BRIGHTEST";
+    }
   }
 
   private static float lerp(float from, float to, float by) {

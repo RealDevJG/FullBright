@@ -24,7 +24,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
-@Mod(modid = "devjg_fullbright", version = "2.1.0", acceptedMinecraftVersions = "[1.8,]")
+@Mod(modid = "devjg_fullbright", version = "2.1.2", acceptedMinecraftVersions = "[1.8,]")
 public class Fullbright {
   public static float transitionSpeed;
   public static boolean showGui;
@@ -38,6 +38,12 @@ public class Fullbright {
   @EventHandler
   public void preInit(FMLPreInitializationEvent event) {
     File settingsFile = new File("DevJG_FullBright.txt");
+    try {
+      settingsFile.createNewFile();
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+
     try {
       Scanner settingsScanner = new Scanner(settingsFile);
 
